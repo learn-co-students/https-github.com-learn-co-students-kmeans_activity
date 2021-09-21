@@ -83,7 +83,7 @@ Question: What is the shape of the image, and what does each component represent
 
 
 ```python
-# Code here
+# Code here to show the dimensions
 ```
 
 
