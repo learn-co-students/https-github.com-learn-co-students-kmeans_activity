@@ -4,10 +4,7 @@
 
 Question: What form do we need the target to be in?
 
-
-```python
-# Your answer here
-```
+> Your answer here
 
 *YOUR ANSWER HERE*
 
@@ -21,21 +18,31 @@ Question: What form do we need the target to be in?
 
 > Your answer here
 
+*YOUR ANSWER HERE*
+
 ### Describe Step 3 (think assignment)
 
 > Your answer here
+
+*YOUR ANSWER HERE*
 
 ### Describe Step 4 (think updates)
 
 > Your answer here
 
+*YOUR ANSWER HERE*
+
 ### When does the algorithm stop?
 
 > Your answer here
 
+*YOUR ANSWER HERE*
+
 ### Define inertia
 
 > Your answer here
+
+*YOUR ANSWER HERE*
 
 # Activity
 
@@ -66,14 +73,13 @@ imgplot = ax.imshow(img)
 
 
     
-![png](index_files/index_22_0.png)
+![png](index_files/index_27_0.png)
     
 
 
+Question: What is the shape of the image, and what does each component represent?
 
-```python
-# What is the shape of the image, and what does each component represent?
-```
+*YOUR ANSWER HERE*
 
 
 ```python
@@ -98,16 +104,10 @@ img_reshape.shape
 ```
 
 
-    ---------------------------------------------------------------------------
 
-    AttributeError                            Traceback (most recent call last)
 
-    <ipython-input-11-0688c5a8c7d1> in <module>
-          1 # Check the shape
-    ----> 2 img_reshape.shape
-    
+    (1734000, 3)
 
-    AttributeError: 'NoneType' object has no attribute 'shape'
 
 
 
@@ -126,7 +126,7 @@ imgplot = ax.imshow(restored_image)
 
 
     
-![png](index_files/index_28_0.png)
+![png](index_files/index_34_0.png)
     
 
 
