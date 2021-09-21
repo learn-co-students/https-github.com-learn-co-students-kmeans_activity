@@ -71,12 +71,6 @@ img = mpimg.imread('data/miro.jpg')
 imgplot = ax.imshow(img)
 ```
 
-
-    
-![png](index_files/index_27_0.png)
-    
-
-
 Question: What is the shape of the image, and what does each component represent?
 
 *YOUR ANSWER HERE*
@@ -104,13 +98,6 @@ img_reshape.shape
 ```
 
 
-
-
-    (1734000, 3)
-
-
-
-
 ```python
 # after clustering, we will restore the original shape
 # the code below demonstrates that the original image is restored by reshaping
@@ -123,12 +110,6 @@ imgplot = ax.imshow(restored_image)
 
 
 ```
-
-
-    
-![png](index_files/index_34_0.png)
-    
-
 
 In a group we will use the KMeans algorithm to reduce the number of colors in the photo.   
 
@@ -209,8 +190,14 @@ imgplot = ax.imshow(new_image_2.astype(int))
 
 # On your own...
 try out different numbers of clusters and see their affect on the painting.
+Use a function to try out different numbers quickly.
 
 
 ```python
 #your code here
+```
+
+
+```python
+
 ```
