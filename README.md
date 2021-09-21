@@ -80,12 +80,6 @@ img = mpimg.imread('data/miro.jpg')
 imgplot = ax.imshow(img)
 ```
 
-
-    
-![png](index_files/index_27_0.png)
-    
-
-
 Question: What is the shape of the image, and what does each component represent?
 
 ==SOLUTION==  
@@ -103,13 +97,6 @@ img.shape
 ```
 
 
-
-
-    (1200, 1445, 3)
-
-
-
-
 ```python
 # Let's look at one pixel
 ```
@@ -120,20 +107,6 @@ img.shape
 # put this array into https://www.colorhexa.com/ to see it is red
 img[900,1200,:]
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-1-a891f7927bfb> in <module>
-          1 #__SOLUTION__
-          2 # put this array into https://www.colorhexa.com/ to see it is red
-    ----> 3 img[900,1200,:]
-    
-
-    NameError: name 'img' is not defined
-
 
 
 ```python
@@ -155,13 +128,6 @@ img_reshape.shape
 ```
 
 
-
-
-    (1734000, 3)
-
-
-
-
 ```python
 # after clustering, we will restore the original shape
 # the code below demonstrates that the original image is restored by reshaping
@@ -174,12 +140,6 @@ imgplot = ax.imshow(restored_image)
 
 
 ```
-
-
-    
-![png](index_files/index_37_0.png)
-    
-
 
 In a group we will use the KMeans algorithm to reduce the number of colors in the photo.   
 
@@ -202,8 +162,20 @@ km = None
 
 
 ```python
+#__SOLUTION__
+km = KMeans(n_clusters=2)
+```
+
+
+```python
 # Fit the km object to img_reshape
 # code here
+```
+
+
+```python
+#__SOLUTION__
+km.fit(img_reshape)
 ```
 
 
@@ -214,8 +186,20 @@ km = None
 
 
 ```python
+#__SOLUTION__
+km.labels_
+```
+
+
+```python
 # view the cluster centers via the cluster_centers_ attribute
 # code here
+```
+
+
+```python
+#__SOLUTION__
+km.cluster_centers_
 ```
 
 
@@ -226,6 +210,15 @@ km = None
 label_centers = []
 for label in km.labels_:
     None
+```
+
+
+```python
+#__SOLUTION__
+
+label_centers = []
+for label in km.labels_:
+    label_centers.append(km.cluster_centers_[label])
 ```
 
 
@@ -249,6 +242,13 @@ new_image_2.shape
 
 
 ```python
+#__SOLUTION__
+new_image_2 = centers_2.reshape(1200, 1445,3)
+
+```
+
+
+```python
 # Run the cell below to plot the new image.  It should have only 2 colors
 ```
 
@@ -260,8 +260,41 @@ imgplot = ax.imshow(new_image_2.astype(int))
 
 # On your own...
 try out different numbers of clusters and see their affect on the painting.
+Use a function to try out different numbers quickly.
 
 
 ```python
 #your code here
+```
+
+
+```python
+#__SOLUTION__
+
+def painting_uglifier(n_clusters, flat_image = img_reshape):
+    
+    '''
+    Given a number of center initializations,
+    reduce an image of a painting from full color
+    to a n_clusters number of colors painting.
+    '''
+    
+    km = KMeans(n_clusters=n_clusters)
+    km.fit(flat_image)
+    
+    label_centers = []
+    for label in km.labels_:
+        label_centers.append(km.cluster_centers_[label])
+    
+    centers = np.array(label_centers)
+    new_image = centers.reshape(1200, 1445,3)
+    
+    fig, ax = plt.subplots(figsize=(10,10))
+    imgplot = ax.imshow(new_image.astype(int))
+    
+```
+
+
+```python
+
 ```
