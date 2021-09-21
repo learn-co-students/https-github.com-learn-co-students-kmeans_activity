@@ -93,12 +93,12 @@ Question: What is the shape of the image, and what does each component represent
 
 
 ```python
-# Code here
+# Code here to show the dimensions
 ```
 
 
 ```python
-#__SOLUTION__
+#__SOLUTION__  
 img.shape
 ```
 
@@ -116,16 +116,23 @@ img.shape
 
 
 ```python
-#__SOLUTION__
+#__SOLUTION__  
 # put this array into https://www.colorhexa.com/ to see it is red
 img[900,1200,:]
 ```
 
 
+    ---------------------------------------------------------------------------
 
+    NameError                                 Traceback (most recent call last)
 
-    array([235,  79,  57], dtype=uint8)
+    <ipython-input-1-a891f7927bfb> in <module>
+          1 #__SOLUTION__
+          2 # put this array into https://www.colorhexa.com/ to see it is red
+    ----> 3 img[900,1200,:]
+    
 
+    NameError: name 'img' is not defined
 
 
 
