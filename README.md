@@ -4,38 +4,47 @@
 
 Question: What form do we need the target to be in?
 
+> Your answer here
 
-```python
-# Your answer here
-```
-
-*YOUR ANSWER HERE*
+Trick question: this is unsupervised learning.  The KMeans algorithm does not require a target.
 
 ### Describe Step 1 (think initializations)
 
 > Your answer here
 
-*YOUR ANSWER HERE*
+The data scientist tells the KMeans algorithm how many clusters to find.  KMeans then initializes that many clusters in random points in the feature space.  By default, KMeans uses kmeans++, which "selects initial cluster centers for k-mean clustering in a smart way to speed up convergence." [source](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
 
 ### Describe Step 2 (think distance)
 
 > Your answer here
 
+The distance between each cluster center and each point is calculated. The distance metric can be changed, but is euclidean by default.
+
 ### Describe Step 3 (think assignment)
 
 > Your answer here
+
+Each point is assigned to the closest cluster center. 
 
 ### Describe Step 4 (think updates)
 
 > Your answer here
 
+New cluster centers are created for each group. These new centers are placed at the mean of the values assigned to each group.  
+
 ### When does the algorithm stop?
 
 > Your answer here
 
+
+The process of label assignment repeats, adjusting the cluster centers each time.  Once the cluster centers no longer move (move less than a threshold), or a max number of iterations has been reached.
+
 ### Define inertia
 
 > Your answer here
+
+
+The average of the sum of squared error over all classes.  Sum of squared errors is the square of the distance of each point from the respective cluster center added together.  Inertia is a metric that indicates how tightly packed a cluster is.  The lower the inertia the better. 
 
 # Activity
 
@@ -66,14 +75,13 @@ imgplot = ax.imshow(img)
 
 
     
-![png](index_files/index_22_0.png)
+![png](index_files/index_27_0.png)
     
 
 
+Question: What is the shape of the image, and what does each component represent?
 
-```python
-# What is the shape of the image, and what does each component represent?
-```
+1200 rows by 1445 columns.  Each element has 3 dimensions, which correspond to RGB values.
 
 
 ```python
@@ -82,8 +90,33 @@ imgplot = ax.imshow(img)
 
 
 ```python
+img.shape
+```
+
+
+
+
+    (1200, 1445, 3)
+
+
+
+
+```python
 # Let's look at one pixel
 ```
+
+
+```python
+# put this array into https://www.colorhexa.com/ to see it is red
+img[900,1200,:]
+```
+
+
+
+
+    array([235,  79,  57], dtype=uint8)
+
+
 
 
 ```python
@@ -93,21 +126,21 @@ img_reshape = None
 
 
 ```python
+img_reshape = img.reshape(-1,3)
+
+```
+
+
+```python
 # Check the shape
 img_reshape.shape
 ```
 
 
-    ---------------------------------------------------------------------------
 
-    AttributeError                            Traceback (most recent call last)
 
-    <ipython-input-11-0688c5a8c7d1> in <module>
-          1 # Check the shape
-    ----> 2 img_reshape.shape
-    
+    (1734000, 3)
 
-    AttributeError: 'NoneType' object has no attribute 'shape'
 
 
 
@@ -126,7 +159,7 @@ imgplot = ax.imshow(restored_image)
 
 
     
-![png](index_files/index_28_0.png)
+![png](index_files/index_37_0.png)
     
 
 
